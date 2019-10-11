@@ -1,4 +1,4 @@
-package com.keshar.restwebservices.basicsofREST;
+package com.keshar.restwebservices.basicsofREST.helloWorld.copy;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

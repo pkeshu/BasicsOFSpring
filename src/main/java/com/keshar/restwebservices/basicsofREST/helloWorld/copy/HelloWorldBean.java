@@ -1,4 +1,4 @@
-package com.keshar.restwebservices.basicsofREST;
+package com.keshar.restwebservices.basicsofREST.helloWorld.copy;
 
 public class HelloWorldBean {
 	
