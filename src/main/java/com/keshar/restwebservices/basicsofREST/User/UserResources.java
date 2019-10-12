@@ -6,6 +6,8 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Resource;
+import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,14 +28,21 @@ public class UserResources {
 		return serviceDao.getUsers();
 	}
 	@GetMapping("/users/{id}")
-	public User retriveUser(@PathVariable int id) {
+	public Resource<User> retriveUser(@PathVariable int id) {
 
 		User singleUser = serviceDao.getSingleUser(id);
-		
+
 		if(singleUser==null) {
 			throw new UserNotFoundException("id-"+id);
 		}
-		return singleUser;
+
+		Resource<User> resource=new Resource<User>(singleUser);
+
+		ControllerLinkBuilder link = ControllerLinkBuilder.linkTo(ControllerLinkBuilder.methodOn(this.getClass()).retriveAllUsers());
+
+		resource.add(link.withRel("all-user"));
+
+		return resource;
 
 	}
 	
