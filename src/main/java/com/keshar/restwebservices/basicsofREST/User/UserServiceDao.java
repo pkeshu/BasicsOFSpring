@@ -14,8 +14,8 @@ public class UserServiceDao {
 
 	static {
 		users.add(new User(1,"Keshar paudel",new Date()));
-		users.add(new User(1,"Krishna paudel",new Date()));
-		users.add(new User(1,"Hari bahadur Thapa",new Date()));
+		users.add(new User(2,"Krishna paudel",new Date()));
+		users.add(new User(3,"Hari bahadur Thapa",new Date()));
 	}
 
 	public  List<User> getUsers() {
