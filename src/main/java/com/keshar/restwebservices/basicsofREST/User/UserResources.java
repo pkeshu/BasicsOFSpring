@@ -25,7 +25,12 @@ public class UserResources {
 	@GetMapping("/users/{id}")
 	public User retriveUser(@PathVariable int id) {
 
-		return serviceDao.getSingleUser(id);
+		User singleUser = serviceDao.getSingleUser(id);
+		
+		if(singleUser==null) {
+			throw new UserNotFoundException("id-"+id);
+		}
+		return singleUser;
 
 	}
 	
