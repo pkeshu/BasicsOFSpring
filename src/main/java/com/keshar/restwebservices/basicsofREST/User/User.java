@@ -2,12 +2,17 @@ package com.keshar.restwebservices.basicsofREST.User;
 
 import java.util.Date;
 
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
 public class User {
 
 	private Integer id;
 
+	@Size(min = 4,message = "Name should be at least 4 character")
 	private String name;
 
+	@Past
 	private Date birthDate;
 	
 	
