@@ -5,17 +5,24 @@ import java.util.Date;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+
+@ApiModel(description = "This is the basic description of api.")
 public class User {
 
 	private Integer id;
 
 	@Size(min = 4,message = "Name should be at least 4 character")
+	@ApiModelProperty(notes = "Name should be at least 4 character")
 	private String name;
 
 	@Past
+	@ApiModelProperty(notes="Birth Date should be before to the current date.")
 	private Date birthDate;
-	
-	
+
+
 
 	public User() {
 		super();
@@ -56,6 +63,6 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", birthDate=" + birthDate + "]";
 	}
-	
-	
+
+
 }
